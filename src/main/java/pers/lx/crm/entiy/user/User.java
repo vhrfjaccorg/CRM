@@ -1,4 +1,4 @@
-package pers.lx.crm.entiy.authorization;
+package pers.lx.crm.entiy.user;
 
 /**
  * Created by lx on 2017/1/20.
@@ -34,4 +34,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

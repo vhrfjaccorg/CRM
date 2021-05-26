@@ -8,11 +8,7 @@
 
     <!-- 映射map -->
     <mappers>
-       <!-- <mapper class="dao.UserDao"/>
-        <mapper class="dao.UserInfoDao"/>
-        <mapper class="dao.CourseInfoDao"/>
-        <mapper class="dao.ScoresDao"/>
-        <mapper class="dao.ScoreInfoDao"/>-->
+       <!--<mapper class="pers.lx.crm.base.common.authorization.pers.lx.crm.dao.UserDao"/>-->
     </mappers>
 
 </configuration>

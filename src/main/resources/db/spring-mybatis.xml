@@ -20,4 +20,9 @@
         <property name="configLocation" value="classpath:db/mybatis-config.xml"/>
     </bean>
 
+    <!--auto scan -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="pers.lx.crm.dao"/>
+    </bean>
+
 </beans>
