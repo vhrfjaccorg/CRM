@@ -5,13 +5,12 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import pers.lx.crm.base.common.pigeon.Result;
+import pers.lx.crm.base.constant.ErrorConstant;
 import pers.lx.crm.controller.BaseController;
+import pers.lx.crm.entiy.user.User;
 import pers.lx.crm.service.user.UserService;
 
 /**
@@ -23,17 +22,28 @@ public class LoginController extends BaseController {
     @Autowired
     private UserService userService ;
 
-    @RequestMapping(value = "/login" , method = RequestMethod.GET)
+    @RequestMapping(value = "/login" , method = RequestMethod.POST)
     public @ResponseBody
-    Result login(){
+    Result login(User user, Boolean remember){
 
         Result result = new Result() ;
 
-        UsernamePasswordToken token = new UsernamePasswordToken("lx","123") ;
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword()) ;
 
-        Subject user = SecurityUtils.getSubject() ;
+        Subject subject = SecurityUtils.getSubject() ;
 
-        user.login(token);
+        result.addParam("yes", remember); ;
+
+        try {
+
+            subject.login(token);
+
+        }catch (Exception e){
+
+            result.setError(ErrorConstant.LOGIN_FAILED);
+            return result;
+
+        }
 
         return result ;
 

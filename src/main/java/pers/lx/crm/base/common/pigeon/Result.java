@@ -9,7 +9,7 @@ import java.util.HashMap;
 
     private HashMap<String,Object>  param = new HashMap<String, Object>();
 
-    private boolean isSuccess = true ;
+    private boolean success = true ;
 
     private String error ;
 
@@ -22,11 +22,11 @@ import java.util.HashMap;
     }
 
     public boolean isSuccess() {
-        return isSuccess;
+        return success;
     }
 
-    public void setSuccess(boolean isSuccess) {
-        this.isSuccess = isSuccess;
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public String getError() {

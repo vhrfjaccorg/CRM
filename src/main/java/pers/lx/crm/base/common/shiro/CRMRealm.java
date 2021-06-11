@@ -25,8 +25,15 @@ public class CRMRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
-        User user = userService.getUserByUsername(((UsernamePasswordToken) token).getUsername()) ;
+        UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken)token ;
 
-        return new SimpleAuthenticationInfo(token.getPrincipal(),token.getCredentials(),this.getName());
+        User user = userService.getUserByUsername(usernamePasswordToken.getUsername()) ;
+
+        if (user != null){
+            return new SimpleAuthenticationInfo(user.getUsername(),user.getPassword(),this.getName());
+        }
+
+        return null ;
+
     }
 }
