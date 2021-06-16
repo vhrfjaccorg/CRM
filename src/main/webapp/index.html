@@ -4,24 +4,82 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Main</title>
 
     <!-- Bootstrap -->
     <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!--layui-->
+    <link  href="resources/layui/css/layui.css" rel="stylesheet">
+
+    <link href="css/index.css" rel="stylesheet">
+
 </head>
 <body>
-<script language='javascript'>document.location = 'view/login.html'</script>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Project Name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Setting</a>
+                </li>
+                <li>
+                    <a href="#">Profile</a>
+                </li>
+                <li>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+<div class="left-label"></div>
+<ul class="layui-nav layui-nav-tree" lay-filter="demo">
+    <li class="layui-nav-item layui-nav-itemed">
+        <a href="javascript:;">默认展开</a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:;">选项一</a></dd>
+            <dd><a href="javascript:;">选项二</a></dd>
+            <dd><a href="javascript:;">选项三</a></dd>
+            <dd><a href="">跳转项</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item">
+        <a href="javascript:;">解决方案</a>
+        <dl class="layui-nav-child">
+            <dd><a href="">移动模块</a></dd>
+            <dd><a href="">后台模版</a></dd>
+            <dd><a href="">电商平台</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">云市场</a></li>
+    <li class="layui-nav-item"><a href="">社区</a></li>
+</ul>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="../resources/jquery-3.3.1.js"></script>
+<script src="resources/jquery-3.1.1.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+<!--layui-->
+<script src="resources/layui/layui.js"></script>
+
+<script>
+    layui.use('element', function(){
+        var element = layui.element(); //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+</script>
+
 </body>
 </html>

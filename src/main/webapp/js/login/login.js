@@ -9,7 +9,7 @@ $("form").submit(function(){
 
     $.post("/login", user, function (data) {
         if (data.success) {
-            alert("添加成功！");
+            window.location = "../index.html" ;
         }else{
             alert(data.error) ;
         }

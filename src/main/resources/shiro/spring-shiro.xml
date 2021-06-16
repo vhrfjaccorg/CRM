@@ -36,8 +36,8 @@ Web应用中，Shiro可控制的Web请求必须经过Shiro主过滤器的拦截�
         <property name="securityManager" ref="securityManager"></property>
          <!--要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面-->
         <property name="loginUrl" value="/view/login.html"></property>
-        <!-- 登录成功后要跳转的连接(本例中此属性用不到，因为登录成功后的处理逻辑在LoginController里硬编码) -->
-        <!-- <property name="successUrl" value="/" ></property> -->
+        <!-- 登录成功后要跳转的连接-->
+         <property name="successUrl" value="/index.html" ></property>
         <!-- 用户访问未对其授权的资源时，所显示的连接 -->
         <property name="unauthorizedUrl" value="/"></property>
         <property name="filterChainDefinitions">
@@ -45,8 +45,7 @@ Web应用中，Shiro可控制的Web请求必须经过Shiro主过滤器的拦截�
                 /css/**=anon
                 /resources/**=anon
                 /view/login.html=anon
-                login=anon
-                /view/test.html=authc
+                /index.html=authc
             </value>
         </property>
     </bean>
